@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web - keyframes로 animation 생성</title>
+    <style>
+      @keyframes sample-ani {
+        0% {
+          transform: translate(0, 0);
+        }
+        50% {
+          background: #ff0000;
+          transform: translate(300px, 0);
+        }
+        100% {
+          transform: translate(400px, 500px);
+        }
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background: #fff000;
+        border: 2px solid #000;
+        animation: sample-ani 2s infinite;
+        /*
+          animation-duration: 2s;
+          animation-timing-function: ease; (등속도-linear)
+          animation-delay: 0s;
+          animation-iteration-count: infinite;
+          animation-direction: normal;
+          animation-fill-mode: none;
+          animation-play-state: running;
+          animation-name: sample-ani;
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Animation</h1>
+    <div class="box">BOX</div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web - aniamition 속성</title>
+    <style>
+      @keyframes sample-ani {
+        0% {
+          transform: translate(0, 0);
+        }
+        50% {
+          background: #ff0000;
+          transform: translate(300px, 0);
+        }
+        100% {
+          transform: translate(400px, 500px);
+        }
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background: #fff000;
+        border: 2px solid #000;
+        animation: sample-ani 3s infinite alternate;
+        /*
+        animation: sample-ani 3s infinite alternate;
+          alternate: 애니메이션의 방향을 결정해주는 속성
+
+        animation: sample-ani 3s forwards;
+          forwards: 애니메이션이 끝나도 대상이 마지막 위치에서 멈춤
+        */
+      }
+      .box:hover {
+        animation-play-state: paused;
+        /* 마우스 호버시 애니메이션 정지 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Animation</h1>
+    <div class="box">BOX</div>
+  </body>
+</html>
