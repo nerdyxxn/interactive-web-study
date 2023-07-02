@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web - CSS 3D (카드 뒤집히는 효과 적용)</title>
+    <style>
+      .world {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60vw; /* 창크기의 60%로 설정 */
+        height: 60vh;
+        background: #fff000;
+        perspective: 800px;
+        /*
+          perspective - 3D 공간에서 요소와 관측점과의 거리, 즉 원근감을 지정하는 속성
+          (적용 범위는 자식에게만 가능, 자손 X, 자손에게 전달하려면 자식 요소에서 transform-style: preserve-3d 속성 적용 필요)
+        */
+      }
+      .card {
+        position: relative;
+        width: 100px;
+        height: 150px;
+        margin: 1em;
+        transform: rotateY(0deg); /* 애니메이션 시작 전 default 상태도 명시해주는 것이 좋음 */
+        transition: 1s;
+        transform-style: preserve-3d; /* world의 자손인 card-side에도 3D 효과 적용시키기 위해 속성 세팅 */
+      }
+      .card-side {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5em; /* em은 해당 단위가 사용되고 있는 요소의 font-size 속성값이 기준 */
+        font-size: 1.5rem; /* rem에서 r은 root, 즉 최상위 요소(html)의 font-size 속성값이 기준 */
+        backface-visibility: hidden; /* 해당 요소의 뒷면 숨기는 속성 */
+      }
+      .card-side-front {
+        background: steelblue;
+        z-index: 1;
+      }
+      .card-side-back {
+        background: tomato;
+        transform: rotateY(180deg);
+      }
+      .world:hover .card {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="world">
+      <div class="card">
+        <div class="card-side card-side-front">F</div>
+        <div class="card-side card-side-back">B</div>
+      </div>
+    </div>
+  </body>
+</html>
