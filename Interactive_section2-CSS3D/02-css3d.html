@@ -26,6 +26,7 @@
         transform: rotateY(0deg); /* 애니메이션 시작 전 default 상태도 명시해주는 것이 좋음 */
         transition: 1s;
         transform-style: preserve-3d; /* world의 자손인 card-side에도 3D 효과 적용시키기 위해 속성 세팅 */
+        /* 카드를 문처럼 왼쪽으로 오픈하려면 .card에 transform-origin: letf 설정 */
       }
       .card-side {
         display: flex;
@@ -50,6 +51,7 @@
       }
       .world:hover .card {
         transform: rotateY(180deg);
+        /* 카드를 문처럼 왼쪽으로 오픈할 때 바깥으로 열리게 하려면 각도를 -180deg로 변경 */
       }
     </style>
   </head>
