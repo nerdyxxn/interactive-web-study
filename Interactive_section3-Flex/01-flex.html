@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web - CSS Flex</title>
+    <style>
+      .container {
+        display: flex;
+        /* flex-direction: column; 축의 방향 설정 (default : row) */
+        justify-content: space-between; /* 메인축 방향 컨텐츠 정렬 설정 */
+        /* align-items: center; 메인축 수직방향 컨텐츠 정렬 설정 */
+        height: 80vh;
+        background: gray;
+      }
+      .item {
+        /* flex-grow: 1; 각 컨텐츠 폭을 제외한 여백의 비율 설정
+        flex-basis: 0; 각 컨텐츠가 차지하는 영역의 폭을 어떻게 처리해줄 것인지 결정 (default : auto) */
+        flex: 1; /* 축약형으로 작성할 경우 flex-basis 0%으로 자동 적용 */
+        border: 3px solid black;
+        font-size: 3rem;
+        background: white;
+      }
+      /* .item:nth-child(1) {
+        flex-grow: 1;
+      }
+      .item:nth-child(2) {
+        flex-grow: 5;
+      }
+      .item:nth-child(3) {
+        flex-grow: 2;
+      }
+      .item:nth-child(4) {
+        flex-grow: 3;
+      }
+      .item:nth-child(5) {
+        flex-grow: 1;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">AAA</div>
+      <div class="item">B</div>
+      <div class="item">CCCCCC</div>
+      <div class="item">DDD</div>
+      <div class="item">E</div>
+    </div>
+  </body>
+</html>
