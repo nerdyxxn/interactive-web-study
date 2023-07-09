@@ -46,7 +46,36 @@
     </div>
 
     <script>
-      // 직접 타이핑 해보세요
+      // querySelector & querySelectorAll
+      const ilbuniA = document.querySelector('.a'); // querySelector : 클래스 이름 겹치면 맨 앞에 있는 객체 가져옴
+      const ilbuniGroup = document.querySelectorAll('.ilbuni'); // 배열과 비슷한 형태인 NodeList 객체 리턴
+      const ilbuniC = ilbuniGroup[2];
+      console.log(ilbuniC);
+
+      // data- 표준 커스텀 속성 활용
+      const char = document.querySelector('.characters');
+      char.setAttribute('data-id', 123);
+      const id = char.getAttribute('data-id');
+
+      // dataset 객체
+      console.log(char.dataset);
+
+      char.dataset.id = 777;
+      char.dataset.title = 'hi!';
+      console.log(char.dataset.title);
+
+      // createElement & appendChild & classList
+      const pElem = document.createElement('p');
+      pElem.innerHTML = '<a href="#">Hi~</a>';
+      const charactersElem = document.querySelector('.characters');
+      charactersElem.appendChild(pElem); // 맨 끝에 자식 객체 추가
+      // charactersElem.removeChild(document.querySelector('.b'));
+
+      // classList
+      ilbuniA.classList.add('special'); // 클래스명 추가
+      // ilbuniA.className = 'special'; // 클래스 이름 자체를 변경
+      ilbuniA.classList.remove('special'); // 클래스명 삭제
+      // ilbuniA.classList.toggle('special');
     </script>
   </body>
 </html>
