@@ -60,19 +60,35 @@
 
     <script>
       // 움직이는 캐릭터 예제로 클릭 이벤트 익히기
+      //   (function () {
+      //     const ilbuniGroup = document.querySelectorAll('.ilbuni');
+      //     const stage = document.querySelector('.stage');
+
+      //     function clickHandler() {
+      //       // this 또는 e.currentTarget 사용
+      //       stage.removeChild(this);
+      //       // this.parentNode.removeChild(this); => parentNode로도 부모 객체에 접근 가능
+      //     }
+
+      //     for (let i = 0; i < ilbuniGroup.length; i++) {
+      //       ilbuniGroup[i].addEventListener('click', clickHandler);
+      //     }
+      //   })();
+
+      // 이벤트 위임 (각각의 ilbuni에 걸려있는 click 이벤트를 부모인 stage로 위임)
       (function () {
-        const ilbuniGroup = document.querySelectorAll('.ilbuni');
         const stage = document.querySelector('.stage');
 
-        function clickHandler() {
-          // this 또는 e.currentTarget 사용
-          stage.removeChild(this);
-          // this.parentNode.removeChild(this); => parentNode로도 부모 객체에 접근 가능
+        function clickHandler(e) {
+          // this = stage
+          // e.target = 내가 클릭한 요소
+          if (e.target.classList.contains('ilbuni')) {
+            // contains : 클래스의 유무 판단
+            stage.removeChild(e.target);
+          }
         }
 
-        for (let i = 0; i < ilbuniGroup.length; i++) {
-          ilbuniGroup[i].addEventListener('click', clickHandler);
-        }
+        stage.addEventListener('click', clickHandler);
       })();
     </script>
   </body>
