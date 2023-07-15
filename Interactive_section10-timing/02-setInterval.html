@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>setTimeout</title>
+    <title>setInterval</title>
     <style>
       .btn {
         font-size: 2rem;
@@ -22,10 +22,10 @@
 
       //setInterval : 지정된 주기로 특정 코드를 실행한다.
       //setTimeout : 지정된 초가 지난 후 특정 코드를 1회 실행한다.
-      timeId = setTimeout(test, 3000);
+      timeId = setInterval(test, 100);
 
       btn.addEventListener('click', function () {
-        clearTimeout(timeId);
+        clearInterval(timeId);
       });
     </script>
   </body>
