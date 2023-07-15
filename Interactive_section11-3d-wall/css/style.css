@@ -1,0 +1,78 @@
+body {
+  font-family: 'Apple SD Gothic Neo', 'Roboto', 'Noto Snas KR', NanumGothic, 'Malgun Gothic',
+    sans-serif;
+  color: #555;
+  background: #fff000;
+}
+
+.world {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  perspective: 1000px;
+  /*   perspective - 3D 공간에서 요소와 관측점과의 거리, 즉 원근감을 지정하는 속성
+      (적용 범위는 자식에게만 가능, 자손 X, 자손에게 전달하려면 자식 요소에서 transform-style: preserve-3d 속성 적용 필요) */
+}
+
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d; /* world의 자손인 wall과 character에도 3D 효과 적용시키기 위해 속성 세팅 */
+}
+
+.house {
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+  transform: translateZ(-490vw);
+}
+
+.wall {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.wall-left {
+  width: 1000vw;
+  background: #f8f8f8;
+  transform: rotateY(90deg) translateZ(-500vw);
+}
+
+.wall-right {
+  width: 1000vw;
+  background: #f8f8f8;
+  transform: rotateY(90deg) translateZ(-400vw); /* 전진! 3D 스크롤 5 */
+}
+
+.wall-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wall-title {
+  font-size: 5rem;
+}
+
+.wall-front-a {
+  transform: translateZ(300vw);
+}
+.wall-front-b {
+  transform: translateZ(50vw);
+}
+.wall-front-c {
+  transform: translateZ(-200vw);
+}
+.wall-front-d {
+  transform: translateZ(-500vw);
+}
