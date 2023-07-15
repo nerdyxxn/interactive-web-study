@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>requestAnimationFrame</title>
+    <style>
+      .btn {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn">취소</button>
+    <script>
+      let timeId;
+      let n = 0;
+      const btn = document.querySelector('.btn');
+
+      function test() {
+        n++;
+        console.log('n');
+
+        // 반복 멈추기 위한 조건 걸어주기
+        if (n > 200) {
+          return;
+        }
+
+        timeId = requestAnimationFrame(test); // requestAnimationFrame은 반복시킬 함수 안에 작성함
+      }
+
+      test();
+
+      btn.addEventListener('click', function () {
+        cancelAnimationFrame(timeId);
+      });
+
+      /* requestAnimationFrame은 브라우저가 애니메이션을 자연스럽게 보이게 하기 위해 사용하는 메소드이다.
+         이 메소드를 사용하면 애니메이션의 각 프레임이 브라우저에서 렌더링되는 시기를 최적화할 수 있고, 이를 통해 애니메이션의 성능을 향상시킬 수 있다.
+         이 메소드는 애니메이션을 부드럽게 보이기 위해 초당 60 프레임(fps)으로 작동하는 것을 목표로 한다.
+
+         따라서, setInterval보다 더 최적화된 requestAnimationFrame을 사용하는 것이 좋다.
+          - 최적화된 만큼 애니메이션이 매끄러워짐
+          - 비활성 탭의 애니메이션은 중지되어 CPU 사용량을 줄임
+      */
+    </script>
+  </body>
+</html>
