@@ -1,6 +1,8 @@
 body {
-  font-family: 'Apple SD Gothic Neo', 'Roboto', 'Noto Snas KR', NanumGothic, 'Malgun Gothic',
+  height: 500vw;
+  font-family: 'Apple SD Gothic Neo', 'Roboto', 'Noto Sans KR', NanumGothic, 'Malgun Gothic',
     sans-serif;
+  -webkit-overflow-scrolling: touch;
   color: #555;
   background: #fff000;
 }
@@ -28,8 +30,8 @@ body {
 .house {
   width: 100vw;
   height: 100vh;
-  transform-style: preserve-3d;
   transform: translateZ(-490vw);
+  transform-style: preserve-3d;
 }
 
 .wall {
@@ -53,17 +55,6 @@ body {
   transform: rotateY(90deg) translateZ(-400vw); /* 전진! 3D 스크롤 5 */
 }
 
-.wall-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.wall-title {
-  font-size: 5rem;
-}
-
 .wall-front-a {
   transform: translateZ(300vw);
 }
@@ -75,4 +66,15 @@ body {
 }
 .wall-front-d {
   transform: translateZ(-500vw);
+}
+
+.wall-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wall-title {
+  font-size: 5rem;
 }
