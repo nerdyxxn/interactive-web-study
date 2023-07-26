@@ -32,6 +32,9 @@ function Character(info) {
   document.querySelector('.stage').appendChild(this.mainElem);
 
   this.mainElem.style.left = info.xPos + '%';
+
+  // scrollState : 스크롤중인지 아닌지 확인하는 속성
+  this.scrollState = false;
   this.init();
 }
 
@@ -45,7 +48,20 @@ Character.prototype = {
     const self = this;
 
     window.addEventListener('scroll', function () {
-      self.mainElem.classList.add('running');
+      // 빈번하게 발생하는 스크롤 이벤트 안에서 동작을 효율적으로 수행하기 위해 setTimeout & clearTimeout 매커니즘 활용
+      // 따라서, 스크롤 중일 때는 running 클래스 추가하는 이벤트 한 번만 발생하도록 설정
+      // 스크롤 중에는 계속 clearTimeout 실행되기 때문에 setTimeout 실행되지 않음 -> 스크롤 멈췄을 때 0.5초 후 setTimeout 로직 수행
+      clearTimeout(self.scrollState);
+
+      if (!self.scrollState) {
+        self.mainElem.classList.add('running');
+        console.log('running 붙~~~!');
+      }
+
+      self.scrollState = setTimeout(function () {
+        self.scrollState = false;
+        self.mainElem.classList.remove('running');
+      }, 500);
     });
   },
 };
