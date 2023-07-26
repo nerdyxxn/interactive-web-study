@@ -3,6 +3,22 @@
     transform: rotateX(-10deg);
   }
 }
+@keyframes ani-running-leg {
+  from {
+    transform: rotateX(-30deg);
+  }
+  to {
+    transform: rotateX(30deg);
+  }
+}
+@keyframes ani-running-arm {
+  from {
+    transform: rotateX(-30deg);
+  }
+  to {
+    transform: rotateX(30deg);
+  }
+}
 
 body {
   height: 500vw;
