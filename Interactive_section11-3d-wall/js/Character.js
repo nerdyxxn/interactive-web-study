@@ -1,4 +1,4 @@
-function Character() {
+function Character(info) {
   // this를 사용하는 것은 Character 생성자를 통해서 만들어낼 인스턴스 객체의 속성으로 쓰겠다는 의미
   this.mainElem = document.createElement('div');
   this.mainElem.classList.add('character');
@@ -30,4 +30,6 @@ function Character() {
 
   // 캐릭터 놓이는 곳 위치에 추가
   document.querySelector('.stage').appendChild(this.mainElem);
+
+  this.mainElem.style.left = info.xPos + '%';
 }
