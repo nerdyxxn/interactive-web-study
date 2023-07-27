@@ -2,6 +2,7 @@
   const stageElem = document.querySelector('.stage');
   const houseElem = document.querySelector('.house');
   const barElem = document.querySelector('.progress-bar');
+  const selectCharacterElem = document.querySelector('.select-character');
   const mousePos = { x: 0, y: 0 };
   let maxScrollValue;
 
@@ -35,13 +36,18 @@
   window.addEventListener('resize', resizeHandler);
 
   // stage 클릭했을 때 Character 추가되도록 설정
-  window.addEventListener('click', function (e) {
+  stageElem.addEventListener('click', function (e) {
     // 클릭한 위치를 character의 CSS left 값으로 설정
     new Character({
       // 객체(info)의 속성으로 필요한 값 전달
       xPos: (e.clientX / window.innerWidth) * 100,
       speed: Math.random() * 0.5 + 0.2,
     });
+  });
+
+  selectCharacterElem.addEventListener('click', function (e) {
+    const value = e.target.getAttribute('data-char');
+    document.body.setAttribute('data-char', value);
   });
 
   resizeHandler();
