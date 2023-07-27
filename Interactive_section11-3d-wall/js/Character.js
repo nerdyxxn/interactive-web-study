@@ -39,7 +39,7 @@ function Character(info) {
   this.lastScrollTop = 0;
 
   this.xPos = info.xPos;
-  this.speed = 0.3;
+  this.speed = info.speed;
 
   // 방향 설정
   this.direction;

@@ -40,6 +40,7 @@
     new Character({
       // 객체(info)의 속성으로 필요한 값 전달
       xPos: (e.clientX / window.innerWidth) * 100,
+      speed: Math.random() * 0.5 + 0.2,
     });
   });
 
