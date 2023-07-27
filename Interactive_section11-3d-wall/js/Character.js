@@ -35,6 +35,8 @@ function Character(info) {
 
   // scrollState : 스크롤중인지 아닌지 확인하는 속성
   this.scrollState = false;
+  // 마지막 스크롤 위치
+  this.lastScrollTop = 0;
   this.init();
 }
 
@@ -62,6 +64,20 @@ Character.prototype = {
         self.scrollState = false;
         self.mainElem.classList.remove('running');
       }, 500);
+
+      // 마지막 스크롤 위치와 현재 스크롤 위치를 비교
+      //   console.log('lastScrollTop: ' + self.lastScrollTop);
+      //   console.log('scrollY: ' + scrollY);
+
+      if (self.lastScrollTop > scrollY) {
+        // 마지막 스크롤 위치가 현재 스크롤 위치보다 크면 스크롤 올림 (후진)
+        self.mainElem.setAttribute('data-direction', 'backward');
+      } else {
+        // 작으면 스크롤 내림 (전진)
+        self.mainElem.setAttribute('data-direction', 'forward');
+      }
+
+      self.lastScrollTop = scrollY;
     });
   },
 };
