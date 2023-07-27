@@ -117,6 +117,7 @@ Character.prototype = {
 
       // requestAnimationFrame cancle 처리
       cancelAnimationFrame(self.rafId);
+      self.runningState = false;
     });
   },
   // 키 누르면 speed 값만큼씩 이동하도록 구현
@@ -127,6 +128,7 @@ Character.prototype = {
       self.xPos += self.speed;
     }
 
+    // 캐릭터 좌우로 이동 시 화면 밖으로 나가지 않도록 범위 설정
     if (self.xPos < 2) {
       self.xPos = 2;
     }
